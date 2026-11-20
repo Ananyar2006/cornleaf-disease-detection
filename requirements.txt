@@ -6,4 +6,3 @@ pillow
 matplotlib
 scikit-learn
 tensorflow
-python-3.10
