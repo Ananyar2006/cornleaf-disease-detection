@@ -79,10 +79,22 @@ def predict_leaf_disease(image_pil):
 # Plot probabilities
 def show_probabilities(probabilities, class_names):
     st.subheader("🔬 Class Confidence")
-    fig, ax = plt.subplots()
-    ax.barh(class_names, probabilities[0], color='teal')
-    ax.set_xlabel("Probability")
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+
+    colors = ["#2ecc71" if p == max(probabilities[0])
+              else "#3498db"
+              for p in probabilities[0]]
+
+    ax.barh(class_names, probabilities[0], color=colors)
+
     ax.set_xlim(0, 1)
+    ax.set_xlabel("Probability")
+    ax.set_facecolor("#f8f9fa")
+
+    for i, v in enumerate(probabilities[0]):
+        ax.text(v + 0.01, i, f"{v*100:.1f}%")
+
     st.pyplot(fig)
 
 # Run prediction if image is uploaded
