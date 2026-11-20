@@ -1,8 +1,8 @@
+scikit-learn==1.2.2
+joblib
+streamlit
 numpy
 pandas
 opencv-python-headless
-scikit-learn
-tensorflow
 pillow
-streamlit
 matplotlib
